@@ -1,5 +1,6 @@
 import { Modal } from '../Modal/Modal';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class ImageGalleryItem extends Component {
   state = {
@@ -11,7 +12,7 @@ export class ImageGalleryItem extends Component {
   };
 
   closeModal = ({ currentTarget, target, code }) => {
-    if (currentTarget === target || code == 'Escape') {
+    if (currentTarget === target || code === 'Escape') {
       this.setState({ isOpen: false });
     }
   };
@@ -39,3 +40,9 @@ export class ImageGalleryItem extends Component {
     );
   }
 }
+
+Modal.propTypes = {
+  largeImageURL: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};

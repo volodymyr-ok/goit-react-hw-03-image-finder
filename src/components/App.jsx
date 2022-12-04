@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { searchByAPI } from '../services/searchByAPI';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -9,10 +10,6 @@ export class App extends Component {
     entrie: '',
     page: 1,
     imageList: [],
-  };
-
-  handleSearchbarSubmit = entrie => {
-    this.setState({ entrie, page: 1, imageList: [] });
   };
 
   componentDidUpdate(_, prevState) {
@@ -39,6 +36,10 @@ export class App extends Component {
     }
   }
 
+  handleSearchbarSubmit = entrie => {
+    this.setState({ entrie, page: 1, imageList: [] });
+  };
+
   loadMoreBtn = () => {
     this.setState(prevState => ({
       page: prevState.page + 1,
@@ -60,3 +61,13 @@ export class App extends Component {
     );
   }
 }
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+ImageGallery.propTypes = {
+  status: PropTypes.string.isRequired,
+  imageList: PropTypes.array.isRequired,
+  loadMore: PropTypes.func.isRequired,
+};

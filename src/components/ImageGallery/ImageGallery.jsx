@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { Loader } from '../Loader/Loader';
 import { Button } from '../Button/Button';
+import PropTypes from 'prop-types';
 
 export class ImageGallery extends Component {
   render() {
@@ -30,3 +31,13 @@ export class ImageGallery extends Component {
     }
   }
 }
+
+ImageGalleryItem.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
+
+Button.propTypes = {
+  loadMore: PropTypes.func.isRequired,
+};
