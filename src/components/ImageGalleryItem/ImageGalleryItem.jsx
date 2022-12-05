@@ -41,8 +41,8 @@ export class ImageGalleryItem extends Component {
   }
 }
 
-Modal.propTypes = {
+ImageGalleryItem.propTypes = {
   largeImageURL: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  closeModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func,
 };

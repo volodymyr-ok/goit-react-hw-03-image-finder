@@ -6,7 +6,5 @@ export async function searchByAPI(entrie, pageNum) {
   const response = await fetch(
     `${API_PATH}?q=${entrie}&page=${pageNum}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=${itemsPerPage}`
   );
-
-  console.log(response);
   return response.json();
 }

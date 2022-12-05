@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Modal = ({ largeImageURL, alt, closeModal }) => {
   document.addEventListener('keydown', closeModal);
 
@@ -8,4 +10,10 @@ export const Modal = ({ largeImageURL, alt, closeModal }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  largeImageURL: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
